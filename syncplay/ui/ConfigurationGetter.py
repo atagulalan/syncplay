@@ -522,11 +522,7 @@ class ConfigurationGetter(object):
                 if QCoreApplication.instance() is None:
                     self.app = QtWidgets.QApplication(sys.argv)
                     if isWindows():
-                        try:
-                            from syncplay.vendor import darkdetect
-                            isDarkMode = darkdetect.isDark()
-                        except:
-                            isDarkMode = False
+                        isDarkMode = True
                         if isDarkMode:
                             self.app.setStyle(QtWidgets.QStyleFactory.create("fusion"))
                             self.app.setPalette(self.getDarkPalette(QtGui))
